@@ -19,19 +19,59 @@
  */
 
 function add(firstNumber, secondNumber) {
+    return firstNumber + secondNumber;
 }
 
 function subtract(firstNumber, secondNumber) {
+    return firstNumber - secondNumber;
 }
 
 function divide(firstNumber, secondNumber) {
+    return firstNumber / secondNumber;
 }
 
 function multiply(firstNumber, secondNumber) {
+    return firstNumber * secondNumber;
 }
 
 function calculate(firstNumber, secondNumber, operation) {
 
+    const isValidFirstNumber = typeof firstNumber === "number";
+    const isValidSecondNumber = typeof secondNumber === "number";
+    
+    if (!isValidFirstNumber || !isValidSecondNumber) {
+        console.log("Please enter a valid number");
+        return;
+    }
+
+    // firstNumber = Number(firstNumber);
+    // secondNumber = Number(secondNumber);
+    
+    // if (isNaN(firstNumber) || isNaN(secondNumber)) {
+    //     console.log("Invalid number(s)");
+    //     return;
+    // } else if (typeof operation === "undefined" || typeof operation !== "string") {
+    //     console.log("Missing operator, expected +, -, * or /");
+    //     return;
+    // }
+
+    switch (operation) {
+        case "+":
+            console.log(add(firstNumber, secondNumber));
+            break;
+        case "-":
+            console.log(subtract(firstNumber, secondNumber));
+            break;
+        case "/":
+            console.log(divide(firstNumber, secondNumber));
+            break;
+        case "*":
+            console.log(multiply(firstNumber, secondNumber));
+            break;
+        default:
+            console.log("No operation was performed.");
+            break;
+    }
 }
 
 calculate(5, 10, '+');
@@ -40,6 +80,7 @@ calculate(5, 10, '/');
 calculate(5, 10, '*');
 calculate('hej', 10);
 calculate(10, 'Hej');
+calculate(5, 10);
 
 // getInput();
 // function getInput() {
