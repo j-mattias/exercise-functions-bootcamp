@@ -41,15 +41,19 @@ console.log(`You win! It took you ${swapCount} swaps`);
 // Functions
 function validSwap(originalWord, newWord, swapCount) {
     let counter = 0;
+    let oldLetter = "", newLetter = "";
     for (let i = 0, len = originalWord.length; i < len; i++) {
         if (originalWord[i] !== newWord[i]) {
             counter++;
+            oldLetter = originalWord[i];
+            newLetter = newWord[i];
         }
     }
-
+    
     if (counter !== swapCount) {
         return false;
     }
+    console.log(`${originalWord} > ${newWord} | Swapped: ${oldLetter} for: ${newLetter}`);
     return true;
 }
 
